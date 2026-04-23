@@ -1,0 +1,89 @@
+/* ═══════════════════════════════════════════
+   CINEMA THEME - Netflix/Plex tarzı
+   Büyük banner'lar, spotlight kartlar, koyu
+═══════════════════════════════════════════ */
+:root {
+    --bg:#0a0a0f;--bg2:#12121a;--bg3:#1a1a26;--border:#252535;
+    --acc:#e50914;--acc2:#b20710;--text:#fff;--text2:#a0a0b8;
+    --text3:#606078;--nav:#0a0a0f;--shadow:rgba(0,0,0,.8);
+    --inp:#1a1a26;--hov:rgba(229,9,20,.08);
+    --radius:4px;--card-radius:6px;
+}
+
+/* Topbar */
+#tb { background:linear-gradient(180deg,rgba(0,0,0,.9) 0%,transparent 100%);border-bottom:none;height:64px }
+.tb-logo-txt { font-size:22px;font-weight:900;letter-spacing:-1px;color:var(--acc) }
+
+/* Sidebar gizle - cinema'da yok */
+#sb { display:none !important }
+#main { margin-left:0 !important }
+#main.exp { margin-left:0 !important }
+#desktop-toggle { display:none !important }
+
+/* Video Grid — büyük kartlar */
+.vg { grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:8px }
+.sg { grid-template-columns:repeat(auto-fill,minmax(180px,1fr)) }
+
+/* Video Card — spotlight efekti */
+.vc { border-radius:var(--card-radius);overflow:hidden;background:var(--bg2) }
+.vc:hover { transform:scale(1.04);z-index:2;box-shadow:0 20px 60px rgba(0,0,0,.8) }
+.vct { border-radius:0;aspect-ratio:16/9 }
+.vct img { transition:transform .4s }
+.vc:hover .vct img { transform:scale(1.08) }
+
+/* Hover overlay — Netflix tarzı */
+.vct-hov {
+    background:linear-gradient(to top,rgba(0,0,0,.95) 0%,rgba(0,0,0,.3) 50%,transparent 100%);
+    opacity:0;transition:.3s
+}
+.vc:hover .vct-hov { opacity:1 }
+
+/* Info altında */
+.vci { background:var(--bg2);padding:12px;border-top:none }
+.vci-t { font-size:15px;font-weight:600 }
+.vci-av { display:none }
+.vci-d { padding-left:0 }
+
+/* Chips */
+.chips { background:transparent;border-bottom:none;padding:8px 24px }
+.chip { background:rgba(255,255,255,.1);border-radius:2px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;font-size:11px }
+.chip.on { background:var(--acc);color:#fff }
+
+/* Section title — büyük beyaz */
+.sec-title { font-size:20px;font-weight:700;margin:24px 0 12px;color:#fff }
+.short-section-title { font-size:20px;font-weight:700;color:#fff }
+
+/* PG padding */
+.pg { padding:16px 24px }
+
+/* NSCard */
+.nscard { background:var(--bg2);border-color:var(--border);border-radius:var(--card-radius) }
+
+/* NsBtn */
+.nsbtn { border-radius:var(--radius) }
+
+/* Hero banner - ana sayfada öne çıkan içerik */
+.cinema-hero {
+    position:relative;height:480px;overflow:hidden;
+    background:linear-gradient(135deg,#0a0a0f,#1a0a1a);
+    margin-bottom:32px
+}
+.cinema-hero img { width:100%;height:100%;object-fit:cover;opacity:.5 }
+.cinema-hero-info {
+    position:absolute;bottom:0;left:0;right:0;
+    background:linear-gradient(transparent,rgba(0,0,0,.95));
+    padding:60px 40px 32px
+}
+.cinema-hero-title { font-size:36px;font-weight:900;margin-bottom:8px;text-shadow:0 2px 8px rgba(0,0,0,.8) }
+.cinema-hero-desc { font-size:15px;color:#ccc;margin-bottom:16px;max-width:600px }
+.cinema-hero-btns { display:flex;gap:10px }
+
+/* Kategori şeritleri */
+.cinema-row { margin-bottom:32px }
+.cinema-row-title { font-size:18px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px }
+.cinema-row-title a { font-size:13px;color:var(--text2);margin-left:auto;font-weight:400 }
+.cinema-scroll { display:flex;gap:8px;overflow-x:auto;padding-bottom:8px }
+.cinema-scroll::-webkit-scrollbar { height:3px }
+.cinema-scroll::-webkit-scrollbar-thumb { background:var(--acc);border-radius:99px }
+.cinema-scroll .vc { flex-shrink:0;width:220px }
+.cinema-scroll .vct { aspect-ratio:16/9 }
